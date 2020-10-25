@@ -222,7 +222,7 @@ function gameEnd() {
 
   endScore = document.createElement("p");
   document.body.appendChild(endScore);
-  endScore.innerHTML = "Your final score is " + timeLeft;
+  endScore.textContent = "Your final score is " + timeLeft + 10;
 
   endEnterInitials = document.createElement("p");
   document.body.appendChild(endEnterInitials);
@@ -231,30 +231,31 @@ function gameEnd() {
   initialButton.addEventListener("click", function(event) {
     event.preventDefault();
 
-    var enterInitial = document.querySelector("initial");
-    localStorage.setItem("initial", JSON.stringify(enterInitial));
-    localStorage.setItem("score", JSON.stringify(endScore));
-
-    var initials = JSON.parse(localStorage.getItem("initial")) || [];
-    var endScoree = JSON.parse(localStorage.getItem("score")) || [];
-
-    console.log(initials);
-    console.log(endScoree);
-    
-
     if (initials === "") {
       alert("Field cannot be blank");
     } else {
       alert("Score saved");
     }
 
+    var highScores = JSON.parse(window.localStorage.getItem("highScores")) || [];
+
+    var enterInitial = document.querySelector("input").value;
+    var newScore = {
+      score: endScore, initials: enterInitial
+    }
+
+    highScores.push(newScore);
+    window.localStorage.setItem("highScores", JSON.stringify(highScores));
+ /*    window.localStorage.setItem("initial", JSON.stringify(enterInitial));
+    window.localStorage.setItem("score", JSON.stringify(endScore)); */
+
+    /* var initials = JSON.parse(window.localStorage.getItem("initial")) || [];
+    var setScore = JSON.parse(window.localStorage.getItem("score")) || []; */
+
+   
+
   }); 
 
-
-  /* var initialForm = document.createElement("input");
-  initialForm.setAttribute("type", "text");
-  initialForm.setAttribute("placeholder", "Enter Initials");
-  document.body.appendChild(initialForm); */
 };
 
 // Fix: go to gameEnd when all questions are answered, not just when time runs out
