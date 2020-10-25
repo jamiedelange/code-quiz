@@ -211,6 +211,9 @@ function gameEnd() {
   endTitle = document.createElement("h2");
   document.body.appendChild(endTitle);
   endTitle.innerHTML = "All done!";
+  var scoreInput = document.getElementById("end-screen");
+  scoreInput.removeAttribute("class");
+  endTitle.setAttribute("class", "hidden");
 
   endScore = document.createElement("p");
   document.body.appendChild(endScore);
@@ -231,8 +234,9 @@ function gameEnd() {
       displayMessage("success", "High score saved");
     }
 
-    localStorage.setItem("initials", endScore);
-  });
+    localStorage.setItem("initial", initial);
+    localStorage.setItem("score", endScore);
+  }); 
 
 
   var initialForm = document.createElement("input");
@@ -242,3 +246,4 @@ function gameEnd() {
 };
 
 // Fix: go to gameEnd when all questions are answered, not just when time runs out
+// check local storage for get items, if nothing set to empty array 
