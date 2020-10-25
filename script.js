@@ -51,9 +51,14 @@ function correctAnswerListener() {
     answerBtn4.addEventListener("click", wrongAnswerListener);
   }
 
+  /* correctNotify = document.createElement("h3");
+  document.body.appendChild(correctNotify);
+  correctNotify.innerHTML = "Correct!"; */
+
   questionHeader.innerHTML = questions[questionsIndex].question;
   questionsIndex++
 }
+
 function wrongAnswerListener() {
   answerBtn1.remove();
   answerBtn2.remove();
@@ -226,23 +231,30 @@ function gameEnd() {
   initialButton.addEventListener("click", function(event) {
     event.preventDefault();
 
-    var initial = document.querySelector("initial").value;
+    var enterInitial = document.querySelector("initial");
+    localStorage.setItem("initial", JSON.stringify(enterInitial));
+    localStorage.setItem("score", JSON.stringify(endScore));
 
-    if (initial === "") {
-      displayMessage("error", "Field cannot be blank");
+    var initials = JSON.parse(localStorage.getItem("initial")) || [];
+    var endScoree = JSON.parse(localStorage.getItem("score")) || [];
+
+    console.log(initials);
+    console.log(endScoree);
+    
+
+    if (initials === "") {
+      alert("Field cannot be blank");
     } else {
-      displayMessage("success", "High score saved");
+      alert("Score saved");
     }
 
-    localStorage.setItem("initial", initial);
-    localStorage.setItem("score", endScore);
   }); 
 
 
-  var initialForm = document.createElement("input");
+  /* var initialForm = document.createElement("input");
   initialForm.setAttribute("type", "text");
   initialForm.setAttribute("placeholder", "Enter Initials");
-  document.body.appendChild(initialForm);
+  document.body.appendChild(initialForm); */
 };
 
 // Fix: go to gameEnd when all questions are answered, not just when time runs out
