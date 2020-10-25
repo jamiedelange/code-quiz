@@ -55,6 +55,10 @@ function correctAnswerListener() {
   document.body.appendChild(correctNotify);
   correctNotify.innerHTML = "Correct!"; */
 
+  if (questionsIndex === 4) {
+    gameEnd();
+  }
+
   questionHeader.innerHTML = questions[questionsIndex].question;
   questionsIndex++
 }
@@ -96,6 +100,10 @@ function wrongAnswerListener() {
     answerBtn4.addEventListener("click", correctAnswerListener);
   } else {
     answerBtn4.addEventListener("click", wrongAnswerListener);
+  }
+
+  if (questionsIndex === 4) {
+    gameEnd();
   }
 
   timeLeft -= 5;
