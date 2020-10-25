@@ -187,7 +187,7 @@ var questions = [
   },
 ];
 
-var timeLeft = 5
+var timeLeft = 60
 var timeInterval;
 var timerEl = document.createElement("p");
 timerEl.setAttribute("id", "timer");
@@ -203,7 +203,6 @@ var timer = function() {
   }, 1000);
 };
 
-// var formEl = document.querySelector("#initial-form"); ???????
 
 function gameEnd() {
   timerEl.remove();
@@ -222,7 +221,7 @@ function gameEnd() {
 
   endScore = document.createElement("p");
   document.body.appendChild(endScore);
-  endScore.textContent = "Your final score is " + timeLeft + 10;
+  endScore.textContent = "Your final score is " + timeLeft;
 
   endEnterInitials = document.createElement("p");
   document.body.appendChild(endEnterInitials);
