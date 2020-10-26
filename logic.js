@@ -1,13 +1,11 @@
 var highScores = JSON.parse(window.localStorage.getItem("highScores")) || [];
 
-var listScoresEl = document.createElement("ol");
-
-for (var i = 0; i < highScores.length; i++) {
-    var scoreListEl = document.createElement("li");
-    scoreListEl.appendChild(listScoresEl);
+highScores.forEach(function(highScores.score) {
+    document.getElementById("scorelist").innerHTML += index + ":" + highScores + "<br>"
 }
 
-scoreListEl.appendChild(scorelist);
+
+
 
 
 
