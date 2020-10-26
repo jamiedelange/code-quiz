@@ -248,22 +248,12 @@ function gameEnd() {
 
     var enterInitial = document.querySelector("input").value;
     var newScore = {
-      score: endScore, initials: enterInitial
+      score: timeLeft, initials: enterInitial
     }
 
     highScores.push(newScore);
     window.localStorage.setItem("highScores", JSON.stringify(highScores));
- /*    window.localStorage.setItem("initial", JSON.stringify(enterInitial));
-    window.localStorage.setItem("score", JSON.stringify(endScore)); */
-
-    /* var initials = JSON.parse(window.localStorage.getItem("initial")) || [];
-    var setScore = JSON.parse(window.localStorage.getItem("score")) || []; */
-
-   
 
   }); 
 
 };
-
-// Fix: go to gameEnd when all questions are answered, not just when time runs out
-// check local storage for get items, if nothing set to empty array 
