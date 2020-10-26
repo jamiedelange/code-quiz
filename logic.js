@@ -1,0 +1,1 @@
+var highScores = JSON.parse(window.localStorage.getItem("highScores")) || [];
