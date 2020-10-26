@@ -195,7 +195,7 @@ var questions = [
   },
 ];
 
-var timeLeft = 60
+var timeLeft = 75
 var timeInterval;
 var timerEl = document.createElement("p");
 timerEl.setAttribute("id", "timer");

@@ -117,3 +117,8 @@ a {
 .hidden {
     display: none;
 }
+
+#scorelist {
+    font-size: 14px;
+    color: white;
+}
