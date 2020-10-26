@@ -56,6 +56,7 @@ function correctAnswerListener() {
   correctNotify.innerHTML = "Correct!"; */
 
   if (questionsIndex === 4) {
+    timerEl.remove();
     gameEnd();
   }
 
@@ -103,6 +104,7 @@ function wrongAnswerListener() {
   }
 
   if (questionsIndex === 4) {
+    timerEl.remove();
     gameEnd();
   }
 
